@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TARA - Komunitas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8F3F3;
+        }
+    </style>
+</head>
+<body class="bg-[#F8F3F3] text-gray-800 font-sans">
+
+    <!-- Header -->
+    <header class="bg-[#E6A8A4] p-4 flex items-center rounded-b-2xl shadow-md">
+        <!-- Tombol kembali -->
+        <a href="homepage.html" class="mr-4">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+        </a>
+        <h1 class="text-2xl font-bold text-white">Komunitas</h1>
+    </header>
+
+    <!-- Konten Utama -->
+    <main class="container mx-auto px-4 py-8">
+        <div class="bg-white rounded-2xl shadow-lg p-6">
+
+            
+            <div id="posts-container" class="space-y-6">
+                <!-- Postingan Contoh 1: Teks -->
+                <div class="bg-[#FFF0E7] rounded-xl shadow-inner p-4">
+                    <div class="flex items-center space-x-3 mb-2">
+                        <div class="w-10 h-10 bg-gray-400 rounded-full"></div>
+                        <span class="font-bold text-gray-800">Rini</span>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed">
+                        Senang banget akhirnya bisa menguasai isyarat untuk 'senang'! Rasanya kayak pintu baru terbuka. Ada yang punya tips untuk isyarat kata kerja?
+                    </p>
+                </div>
+                
+                <!-- Postingan Contoh 2: Teks dan Gambar -->
+                <div class="bg-[#FFF0E7] rounded-xl shadow-inner p-4">
+                    <div class="flex items-center space-x-3 mb-2">
+                        <div class="w-10 h-10 bg-gray-400 rounded-full"></div>
+                        <span class="font-bold text-gray-800">Anton</span>
+                    </div>
+                    <img src="Assets/starbucks.png" class="max-w-md w-full h-auto rounded-lg mb-4 mx-auto block" alt="Postingan Komunitas - Latihan Tangan">
+                    <p class="text-gray-700 leading-relaxed">
+                    Abis coba main ke Starbuck Tata Puri dan ketemu sama temen-temen tuli di sana! Tempatnya nyaman banget dan sangat recommend untuk wfc!!                    </p>
+                </div>
+
+                <!-- Postingan Contoh 3: Teks -->
+                <div class="bg-[#FFF0E7] rounded-xl shadow-inner p-4">
+                    <div class="flex items-center space-x-3 mb-2">
+                        <div class="w-10 h-10 bg-gray-400 rounded-full"></div>
+                        <span class="font-bold text-gray-800">Dewi</span>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed">
+                        Saya baru tahu ada banyak dialek bahasa isyarat. Sangat menarik! Apakah ada yang tahu cara belajar isyarat daerah lain?
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Tombol Tambah Postingan (Floating Button) -->
+            <a href="forum.html" class="fixed bottom-8 right-8 w-16 h-16 bg-[#E6A8A4] text-white rounded-full shadow-lg flex items-center justify-center text-4xl hover:bg-[#D79A95] transition duration-300">
+                +
+            </a>
+        </div>
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TARA - Kuis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8F3F3;
+        }
+        .option-button {
+            background-color: #F3E0E0; /* Light pink */
+            color: #555555; /* Dark gray text */
+            transition: all 0.3s ease;
+        }
+        .option-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            background-color: #F0D5D5; /* Slightly darker pink on hover */
+        }
+        .option-button.selected {
+            background-color: #E6A8A4; /* Selected color from header */
+            color: white;
+            border: 2px solid #D79A95;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .option-button.correct {
+            background-color: #4CAF50; /* Green */
+            color: white;
+        }
+        .option-button.incorrect {
+            background-color: #F44336; /* Red */
+            color: white;
+        }
+        #message-box {
+            display: none;
+            position: fixed;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #333;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 1rem;
+            z-index: 1000;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .score-circle {
+            background-color: #B2D8B2; /* Green from the image */
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body class="bg-[#F8F3F3] text-gray-800 font-sans flex flex-col min-h-screen">
+
+    <!-- Header -->
+    <header class="bg-[#E6A8A4] p-4 flex items-center rounded-b-2xl shadow-md">
+        <!-- Tombol kembali -->
+        <a href="GamePage.html" class="mr-4">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+        </a>
+        <h1 class="text-2xl font-bold text-white">Kuis 1</h1>
+    </header>
+
+    <!-- Konten Utama -->
+    <main class="container mx-auto px-4 py-8 flex-grow flex items-center justify-center text-center">
+        <!-- Halaman Kuis -->
+        <div id="quiz-container" class="w-full bg-white rounded-2xl shadow-lg p-6 max-w-lg">
+            <!-- Bagian Pertanyaan -->
+            <div class="flex flex-col items-center">
+                <div class="w-full bg-gray-200 rounded-lg p-4 mb-6">
+                    <!-- Placeholder untuk gambar -->
+                    <img src="Assets/question.png" alt="Gambar Gerakan Tangan" class="w-full h-auto rounded-lg">
+                </div>
+
+                <!-- Opsi Jawaban -->
+                <div class="w-full space-y-4" id="options-container">
+                    <button class="option-button w-full font-bold py-3 px-4 rounded-xl shadow-md" data-value="O">
+                        O
+                    </button>
+                    <button class="option-button w-full font-bold py-3 px-4 rounded-xl shadow-md" data-value="G">
+                        G
+                    </button>
+                    <button class="option-button w-full font-bold py-3 px-4 rounded-xl shadow-md" data-value="P">
+                        P
+                    </button>
+                    <button class="option-button w-full font-bold py-3 px-4 rounded-xl shadow-md" data-value="Q">
+                        Q
+                    </button>
+                </div>
+                
+                <!-- Tombol Periksa -->
+                <div class="mt-6 w-full">
+                    <button id="check-button" class="w-full bg-[#E6A8A4] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:bg-[#D79A95] transition duration-300 transform hover:scale-105">
+                        Periksa
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Halaman Hasil / Nilai (tersembunyi secara default) -->
+        <div id="score-container" class="w-full bg-white rounded-2xl shadow-lg p-6 max-w-lg hidden flex flex-col items-center justify-center">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8">Skor Akhir</h2>
+            <div id="score-circle" class="score-circle">
+                <p id="score-value" class="text-6xl font-extrabold text-white"></p>
+            </div>
+            <p id="correct-answers-text" class="text-lg text-gray-700 font-medium mb-1">Total jawaban benar</p>
+            <p id="correct-message" class="text-xl font-bold text-gray-800 mb-8"></p>
+            
+            <div class="flex space-x-4 w-full">
+                <a href="homepage.html" id="continue-button" class="w-1/2 bg-[#7D9EA8] text-white font-bold py-3 px-4 rounded-full shadow-lg hover:bg-[#68858F] transition duration-300 transform hover:scale-105">
+                    Lanjutkan
+                </a>
+                <a href="homepage.html" id="home-button" class="w-1/2 bg-[#E6A8A4] text-white font-bold py-3 px-4 rounded-full shadow-lg hover:bg-[#D79A95] transition duration-300 transform hover:scale-105">
+                    Halaman Utama
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Kotak Pesan Kustom -->
+    <div id="message-box" class="hidden">
+        Pilih salah satu jawaban terlebih dahulu.
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const quizContainer = document.getElementById('quiz-container');
+            const scoreContainer = document.getElementById('score-container');
+            const optionsContainer = document.getElementById('options-container');
+            const checkButton = document.getElementById('check-button');
+            const scoreValue = document.getElementById('score-value');
+            const correctMessage = document.getElementById('correct-message');
+            const messageBox = document.getElementById('message-box');
+            const scoreCircle = document.getElementById('score-circle');
+            
+            // Jawaban yang benar
+            const correctAnswer = "G";
+            let selectedOption = null;
+            
+            // Handle selection of option buttons
+            optionsContainer.addEventListener('click', (event) => {
+                const target = event.target;
+                if (target.classList.contains('option-button')) {
+                    // Hapus kelas 'selected' dari semua tombol
+                    optionsContainer.querySelectorAll('.option-button').forEach(button => {
+                        button.classList.remove('selected');
+                    });
+                    
+                    // Tambahkan kelas 'selected' pada tombol yang diklik
+                    target.classList.add('selected');
+                    selectedOption = target.getAttribute('data-value');
+                }
+            });
+
+            // Handle check button click
+            checkButton.addEventListener('click', () => {
+                if (selectedOption) {
+                    let score;
+                    let correctCount;
+                    if (selectedOption === correctAnswer) {
+                        score = 100;
+                        correctCount = 1;
+                        scoreCircle.style.backgroundColor = '#B2D8B2'; // Green
+                    } else {
+                        score = 90;
+                        correctCount = 0;
+                        scoreCircle.style.backgroundColor = '#F0D5D5'; // Pink, similar to the incorrect button
+                        document.querySelector(`.option-button[data-value="${selectedOption}"]`).classList.add('incorrect');
+                        document.querySelector(`.option-button[data-value="${correctAnswer}"]`).classList.add('correct');
+                    }
+                    
+                    // Tampilkan halaman nilai
+                    scoreValue.textContent = score;
+                    correctMessage.textContent = `${correctCount} dari 1 pertanyaan!`; // Menyesuaikan dengan satu pertanyaan
+                    quizContainer.classList.add('hidden');
+                    scoreContainer.classList.remove('hidden');
+
+                } else {
+                    alertMessage("Pilih salah satu jawaban terlebih dahulu.");
+                }
+            });
+
+            // Function to show custom message box
+            function alertMessage(message) {
+                messageBox.textContent = message;
+                messageBox.classList.remove('hidden');
+                messageBox.style.display = 'block';
+                setTimeout(() => {
+                    messageBox.style.display = 'none';
+                    messageBox.classList.add('hidden');
+                }, 3000); // Hide after 3 seconds
+            }
+        });
+    </script>
+
+</body>
+</html>

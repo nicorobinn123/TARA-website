@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TARA - Diskusi Forum</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8F3F3;
+        }
+    </style>
+</head>
+<body class="bg-[#F8F3F3] text-gray-800 font-sans">
+
+    <!-- Header -->
+    <header class="bg-[#E6A8A4] p-4 flex items-center rounded-b-2xl shadow-md">
+        <!-- Tombol kembali -->
+        <a href="communityPage.html" class="mr-4">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+        </a>
+        <h1 class="text-2xl font-bold text-white">Forum</h1>
+    </header>
+
+    <!-- Konten Utama -->
+    <main class="container mx-auto px-4 py-8">
+        <div class="bg-white rounded-2xl shadow-lg p-6">
+    
+            <!-- Area untuk membuat postingan baru -->
+            <div class="bg-[#FFF0E7] rounded-xl shadow-inner p-4">
+                <div class="flex items-start space-x-3 mb-4">
+                    <div class="w-10 h-10 bg-gray-400 rounded-full"></div>
+                    <textarea class="w-full h-32 p-3 text-gray-700 bg-transparent border-none focus:outline-none resize-none" placeholder="Mau cerita apa hari ini?"></textarea>
+                </div>
+
+                <div class="flex justify-between items-center">
+                    <button class="flex items-center space-x-2 text-gray-600 hover:text-[#D27E78] transition">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                    </button>
+                    <a href="communityPage.html" class="bg-[#E6A8A4] text-white font-bold py-2 px-6 rounded-full shadow-lg hover:bg-[#D79A95] transition">
+                        Post
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tara - Halaman Beranda</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8F3F3;
+        }
+    </style>
+</head>
+<body class="bg-[#F8F3F3] font-sans">
+
+    <!-- Header -->
+    <header class="bg-[#E6A8A4] p-4 flex justify-end items-center rounded-b-2xl shadow-md">
+        <!-- Profile / Notification -->
+        <a href="profilePage.html" class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow">
+            <svg class="w-6 h-6 text-[#E6A8A4]" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" fill-rule="evenodd"></path>
+            </svg>
+        </a>
+    </header>
+
+    <!-- Main Content -->
+    <main class="p-6 space-y-6">
+
+        <h2 class="text-3xl font-bold text-gray-800 mb-4">Ayo Belajar!</h2>
+
+        <!-- Bab & Materi Section -->
+<a href="BabMateriPage.html" class="block">
+    <div class="bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-200">
+        <img src="Assets/Bab&Materi.png" alt="Bab & Materi" class="w-full h-52 object-cover">
+        <div class="p-4 text-center">
+            <p class="text-lg font-semibold text-gray-700">Bab & Materi</p>
+        </div>
+    </div>
+</a>
+
+
+<!-- AI Word Translator Section -->
+<a href="AItranslation.html" 
+   class="block bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-200">
+    <div class="h-48 w-full overflow-hidden">
+        <img src="Assets/AI.png" alt="AI Word Translator" class="w-full h-full object-cover">
+    </div>
+    <div class="p-6 text-center">
+        <p class="text-lg font-semibold text-gray-700">Penerjemah AI</p>
+    </div>
+</a>
+
+
+        <!-- Kamus & Permainan Section -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <!-- Kamus Section -->
+    <a href="kamusPage.html" class="block bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-200">
+        <img src="Assets/Kamus.png" alt="Kamus" class="w-full h-40 object-cover">
+        <div class="p-4 text-center">
+            <p class="text-lg font-semibold text-gray-700">Kamus</p>
+        </div>
+    </a>
+
+    <!-- Permainan Section -->
+    <a href="GamePage.html" class="block bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-200">
+        <img src="Assets/Game.png" alt="Permainan" class="w-full h-40 object-cover">
+        <div class="p-4 text-center">
+            <p class="text-lg font-semibold text-gray-700">Permainan</p>
+        </div>
+    </a>
+</div>
+
+        <!-- Komunitas Section -->
+<a href="communityPage.html" class="block bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-200">
+    <div class="h-48 w-full overflow-hidden">
+        <img src="Assets/Komunitas.png" alt="Komunitas" class="w-full h-full object-cover">
+    </div>
+    <div class="p-6 text-center">
+        <p class="text-lg font-semibold text-gray-700">Komunitas</p>
+    </div>
+</a>
+
+    </main>
+
+</body>
+</html>
