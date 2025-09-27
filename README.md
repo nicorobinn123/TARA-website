@@ -14,7 +14,7 @@ TARA showcases **videos lessions, a sign dictionary, quizzes, and a community fo
 
 
 📽️ Demo:
-[Live Demo](https://nicorobinn123.github.io/TARA-website/)
+[▶️ Live Demo](https://nicorobinn123.github.io/TARA-website/)
 
 
 ⚙️ Tools:
